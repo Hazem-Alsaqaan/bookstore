@@ -10,7 +10,7 @@ const App = ()=>{
     const [books, setBooks] = useState([]);
     // get books
     useEffect(()=>{
-        BooksAPI.getAll().then((data)=>setBooks(data))
+        BooksAPI.getAll().then((data)=>setBooks(data)) 
     },[])
     // update shelf 
     const changeShelf = async(book, shelf)=>{
