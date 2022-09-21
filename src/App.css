@@ -185,3 +185,17 @@ body,
   text-align: center;
   font-size: 0.8em;
 }
+/* not found section */
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.not-found h1 {
+  color: #a1a1a1;
+}
+.not-found h1 span{
+  color: var(--main-color);
+}

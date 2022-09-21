@@ -4,6 +4,7 @@ import "./App.css"
 import * as BooksAPI from "./BooksAPI"
 import Search from "./components/search/Search";
 import Home from "./components/home/Home";
+import NotFound from "./components/not found/NotFound";
 
 const App = ()=>{
     const [books, setBooks] = useState([]);
@@ -28,6 +29,7 @@ const App = ()=>{
                 <Routes>
                     <Route path="/search" element= {<Search books={books} handleSearch={handleSearch} changeShelf={changeShelf}/>}/>
                     <Route path="/bookstore" element= {<Home books={books} changeShelf={changeShelf}/>}/>
+                    <Route path="*" element= {<NotFound/>}/>
                 </Routes>
             </div>
         </Fragment>
