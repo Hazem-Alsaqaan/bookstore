@@ -27,7 +27,7 @@ const App = ()=>{
             <div className="app">
                 <Routes>
                     <Route path="/search" element= {<Search books={books} handleSearch={handleSearch} changeShelf={changeShelf}/>}/>
-                    <Route path="/" element= {<Home books={books} changeShelf={changeShelf}/>}/>
+                    <Route path="/bookstore" element= {<Home books={books} changeShelf={changeShelf}/>}/>
                 </Routes>
             </div>
         </Fragment>

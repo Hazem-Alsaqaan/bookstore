@@ -10,7 +10,7 @@ const Search = ({handleSearch, books, changeShelf })=>{
         <Fragment>
                 <div className="search-books">
                     <div className="search-books-bar">
-                        <Link to="/" className="close-search">close</Link>
+                        <Link to="/bookstore" className="close-search">close</Link>
                         <div className="search-books-input-wrapper">
                         <input
                             type="text"
