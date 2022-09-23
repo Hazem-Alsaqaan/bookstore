@@ -7,23 +7,23 @@ import Home from "./components/home/Home";
 import NotFound from "./components/not found/NotFound";
 
 const App = ()=>{
-    const [books, setBooks] = useState({error: "something is wrong", items: []});
+    const [books, setBooks] = useState([]);
     // get books
     useEffect(()=>{
-        BooksAPI.getAll().then((data)=>setBooks({ items: data})) 
+        BooksAPI.getAll().then((data)=>setBooks(data)) 
     },[])
     // update shelf 
     const changeShelf = async(book, shelf)=>{
         await BooksAPI.update(book, shelf)
-        BooksAPI.getAll().then((data)=>setBooks({ items: data}))
+        BooksAPI.getAll().then((data)=>setBooks(data))
     }
     // search books
     const handleSearch = async(event)=>{
             await BooksAPI.search(event, 20).then((data)=>{
-                if(event.length === 0){
-                    setBooks({items:[]})
+                if(data && !data.error){
+                    setBooks(data)
                 }else{
-                    setBooks({ items: data})
+                    setBooks([])
                 }
             })
     }
@@ -33,8 +33,8 @@ const App = ()=>{
         <Fragment>
             <div className="app">
                 <Routes>
-                    <Route path="/search" element= {<Search error = {books.error} books={books.items} handleSearch={handleSearch} changeShelf={changeShelf}/>}/>
-                    <Route path="/bookstore" element= {<Home books={books.items} changeShelf={changeShelf}/>}/>
+                    <Route path="/search" element= {<Search books={books} handleSearch={handleSearch} changeShelf={changeShelf}/>}/>
+                    <Route path="/bookstore" element= {<Home books={books} changeShelf={changeShelf}/>}/>
                     <Route path="*" element= {<NotFound/>}/>
                 </Routes>
             </div>

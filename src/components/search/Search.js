@@ -32,9 +32,9 @@ const Search = ({handleSearch, books, changeShelf })=>{
                     </div>
                     <div className="search-books-results">
                         <ol className="books-grid">
-                        {books.map((book)=> 
+                        {books.length > 0 ? books.map((book)=> 
                         <OneBook key={book.id} book = {book} changeShelf={changeShelf}/>
-                        )}
+                        ): <div>No book found</div>}
                         </ol>
                     </div>
                 </div>
