@@ -14,7 +14,8 @@ const OneBook = ({book, changeShelf})=>{
                             width: 128,
                             height: 193,
                             backgroundImage:
-                            book.imageLinks ?`url(${book.imageLinks.thumbnail})` : null,
+                            book.imageLinks.thumbnail ?`url(${book.imageLinks.thumbnail})` 
+                            : book.imageLinks.smallThumbnail ?`url(${book.imageLinks.smallThumbnail})` : null,
                             }}
                         ></div>
                         <ChangesList book = {book} changeShelf = {changeShelf}/>

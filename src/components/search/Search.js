@@ -3,9 +3,20 @@ import { Link } from "react-router-dom";
 import OneBook from "../books shelfs/OneBook";
 
 const Search = ({handleSearch, books, changeShelf })=>{
+
+    const temp = true;
     const searchBooks = (event)=>{
-        handleSearch(event)
+            const debouncing = setTimeout(()=>{
+                if(temp){
+                    handleSearch(event.target.value);
+                }
+        },1500)
+        return ()=>{
+            clearTimeout(debouncing)
+        }
+        
     }
+
     return(
         <Fragment>
                 <div className="search-books">
@@ -15,13 +26,15 @@ const Search = ({handleSearch, books, changeShelf })=>{
                         <input
                             type="text"
                             placeholder="Search by title, author, or ISBN"
-                            onChange={(e)=>searchBooks(e.target.value)}
+                            onChange={searchBooks}
                         />
                         </div>
                     </div>
                     <div className="search-books-results">
                         <ol className="books-grid">
-                        {books.map((book)=><OneBook key={book.id} book = {book} changeShelf={changeShelf}/>)}
+                        {books.map((book)=> 
+                        <OneBook key={book.id} book = {book} changeShelf={changeShelf}/>
+                        )}
                         </ol>
                     </div>
                 </div>
