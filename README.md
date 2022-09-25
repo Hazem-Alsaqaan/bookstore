@@ -1,9 +1,11 @@
 # bookstore
 bookstore website created by react.js
-**visit the project direct**
+
+* **visit the project direct**
+
 https://hazem-alsaqaan.github.io/bookstore/
 
-## or:
+* **or:**
 ###### **doc** : Visit bookstore project on your local workspace
 
 * Open terminal windows
